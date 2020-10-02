@@ -16,3 +16,42 @@ Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by press
 When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
 
 The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```{r}
+print("Here we go 00")
+# c(boot, class, cluster, codetools, foreign, KernSmooth, lattice, mgcv, nlme, repart, survival, MASS, spatial, nnet, Matrix)
+# for commenting ctlr+Shift+C
+# for a new chunk ctrl+alt+i
+```
+
+
+```{r}
+mydata<- read.csv("hw1_data.csv")
+mydata[1,]
+colnames(mydata)
+dim(mydata)
+
+# subset_mydata<- mydata[1:2,]
+# subset_mydata
+# 
+# subset_mydata2 <-mydata[152:153,]
+# subset_mydata2
+# 
+# subset_mydata3 <-mydata[47,]
+# subset_mydata3
+# subset_mydata3$Ozone
+# 
+# Ozone <- mydata$Ozone
+# bad <- is.na(Ozone) 
+# filteredOzone = Ozone[!bad]
+# mean(filteredOzone)
+
+
+#18
+mydata_subset<-data.frame(mydata["Ozone"],mydata["Temp"],mydata["Solar.R"])
+good <- complete.cases(mydata_subset["Ozone"],mydata_subset["Temp"], mydata_subset["Solar.R"])
+mydata_good<-data.frame(mydata$Ozone[good],mydata$Temp[good],mydata$Solar.R[good])
+
+
+```
+
